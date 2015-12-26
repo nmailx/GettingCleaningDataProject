@@ -26,7 +26,7 @@ testsub <- read.table(testsub.file,col.names="Subject")
 dataset <- rbind(traindata,testdata)
 
 #Step 2 - Extract only measurements which are mean and standard deviation for each measurement
-msfeatures <- features$V1[grepl('mean()',features$V2)|grepl('std()',features$V2)]
+msfeatures <- features$V1[grepl('mean()',features$V2,fixed=T)|grepl('std()',features$V2,fixed=T)]
 dataset <- dataset[,msfeatures]
 
 #Step 3 - Name the activities in the data set
@@ -50,10 +50,10 @@ for (subj in unique(dataset2$Subject)){
     for (activ in unique(dataset2$Activity)){
         subtru = dataset2$Subject == subj
         acttru = dataset2$Activity == activ
-        vmeans = colMeans(dataset2[subtru&acttru,3:81])
+        vmeans = colMeans(dataset2[subtru&acttru,3:68])
         d2[r2,1] <- subj
         d2[r2,2] <- activ
-        d2[r2,3:81] <- unname(vmeans)
+        d2[r2,3:68] <- unname(vmeans)
         r2 = r2 + 1
     }
 }

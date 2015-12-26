@@ -61,15 +61,15 @@ A for loop is used to iterate through all subjects, and a nested for loop will i
 ```
 subtru = dataset2$Subject == subj
 acttru = dataset2$Activity == activ
-vmeans = colMeans(dataset2[subtru&acttru,3:81])
+vmeans = colMeans(dataset2[subtru&acttru,3:68])
 ```
-'subtru' and 'acttru' are logic vectors that represent the rows where the subject is the one in the current iteration ('subj') and the activity is the one in the current iteration ('activ'). 'vmeans' then stores the mean of each column from columns 3 to 81, which correspond to the 79 variables from the 'dataset' data frame previously.
+'subtru' and 'acttru' are logic vectors that represent the rows where the subject is the one in the current iteration ('subj') and the activity is the one in the current iteration ('activ'). 'vmeans' then stores the mean of each column from columns 3 to 68, which correspond to the 64 measured variables from the 'dataset' data frame previously.
 
 In the next block of code embedded in the for loop:
 ```
 d2[r2,1] <- subj
 d2[r2,2] <- activ
-d2[r2,3:81] <- unname(vmeans)
+d2[r2,3:68] <- unname(vmeans)
 r2 = r2 + 1
 ```
 We append the subject and activity of the current iteration, as well as 'vmeans', to 'd2'. 'r2' then increases by 1 which signifies that we will append to the next row after we calculate 'vmeans' for the next subject and activity.
