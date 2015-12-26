@@ -8,6 +8,8 @@ The entire raw dataset is saved in the folder 'UCI HAR Dataset'. Within this fol
 
 The names of the features measured in the study are read from 'features.txt'. The features' names are then assigned as column names when reading the training and test data.
 
+This R file assumes that the folder 'UCI HAR Dataset' is placed in the working folder. Then, simply run the R file and the tidy data set 'projtidydata.txt' in the 'UCI HAR Dataset' folder.
+
 ### Step 1: Merge training and test data
 The following code
 ```
